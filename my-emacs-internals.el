@@ -10,7 +10,7 @@
 (desktop-save-mode 1)
 
 ;; remove scrollbars
-(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+;;; (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; remove tool bar
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -22,7 +22,12 @@
 (setq inhibit-startup-message t)
 
 ;; use UTF-8
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
+
+;; don't make those silly tilde based backups
+(setq make-backup-files nil)
 
 ; Lines shouldn't be longer than 79 chars
 (setq fill-column 79)
@@ -51,7 +56,7 @@
 ;; line numbers
 (global-linum-mode 1)
 (setq column-number-mode t)
-(setq linum-format "%4d")
+(setq linum-format "%4d ")
 
 ;; increase the left-hand padding of the main window
 (setq-default left-fringe-width  10)
@@ -65,7 +70,7 @@
 ;;; backup-by-copying t
 ;;; backup-directory-alist(server-start)
 ;;; (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
-;;; 
+;;;
 
 
  ;; clean up whitespaces on save

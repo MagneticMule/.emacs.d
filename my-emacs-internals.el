@@ -1,7 +1,12 @@
 ;~/.emacs.d/my-emacs-internals.el
 ;;; Code:
-;;; (setq-default left-margin-width 2 right-margin-width 2) ; Define new widths.
-;;; (set-window-buffer nil (current-buffer)) ; Use them now.
+;; (setq-default left-margin-width 2 right-margin-width 2) ; Define new widths.
+;; (set-window-buffer nil (current-buffer)) ; Use them now.
+
+;; default font
+(set-default-font "DejaVu Sans Mono 15")
+;; line height
+(setq-default line-spacing 6)
 
 ;; proper word wrap
 (global-visual-line-mode t)
@@ -10,7 +15,7 @@
 (desktop-save-mode 1)
 
 ;; remove scrollbars
-;;; (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; remove tool bar
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -73,7 +78,7 @@
 ;;;
 
 
- ;; clean up whitespaces on save
+;; clean up whitespaces on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;; my-emacs-internals.el ends here

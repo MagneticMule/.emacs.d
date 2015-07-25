@@ -87,14 +87,11 @@
 (workgroups-mode 1)
 
 (require 'yasnippet)
-;; (yas-global-mode 1)
+ (yas-global-mode 1)
 
 
 (require 'powerline)
-(powerline-default-theme)
-
-;; (require 'graphene)
-
+(powerline-center-theme)
 
 (require 'helm)
 (require 'helm-config)

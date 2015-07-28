@@ -169,3 +169,28 @@
 
 ;; enable projectile everywhere
 (projectile-global-mode)
+
+
+
+;; js2 mode
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+(setq js2-highlight-level 3)
+
+;; set up ternjs
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(eval-after-load 'tern
+   '(progn
+      (require 'tern-auto-complete)
+      (tern-ac-setup)))
+
+
+;; paraedit brace balancing for JS
+(define-key js-mode-map "{" 'paredit-open-curly)
+(define-key js-mode-map "}" 'paredit-close-curly-and-newline)
+
+;; enable flycheck on JS files
+(add-hook 'js-mode-hook
+          (lambda () (flycheck-mode t)))
+
+;;; my-package ends here

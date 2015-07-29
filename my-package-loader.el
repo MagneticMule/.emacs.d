@@ -84,11 +84,10 @@
 
 (require 'workgroups)
 (setq wg-prefix-key (kbd "C-c w"))
-(workgroups-mode 1)
+(workgroups-mode t)
 
 (require 'yasnippet)
- (yas-global-mode 1)
-
+;; (yas-global-mode 1)
 
 (require 'powerline)
 (powerline-center-theme)
@@ -99,7 +98,7 @@
 (require 'helm-files)
 (require 'helm-grep)
 (autoload 'helm-bibtex "helm-bibtex" "" t)
-(setq helm-bibtex-bibliography "/home/tommy/Dropbox/PhD/Thesis/library.bib")
+;; (setq helm-bibtex-bibliography "/home/tommy/Dropbox/PhD/Thesis/library.bib")
 
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
@@ -152,7 +151,7 @@
 (setq speedbar-hide-button-brackets-flag t)
 (setq speedbar-show-unknown-files t)
 (setq speedbar-smart-directory-expand-flag t)
-(setq speedbar-use-images nil)
+(setq speedbar-use-images t)
 (setq sr-speedbar-auto-refresh nil)
 (setq sr-speedbar-max-width 70)
 (setq sr-speedbar-right-side nil)
@@ -186,8 +185,8 @@
 
 
 ;; paraedit brace balancing for JS
-(define-key js-mode-map "{" 'paredit-open-curly)
-(define-key js-mode-map "}" 'paredit-close-curly-and-newline)
+;; (define-key js-mode-map "{" 'paredit-open-curly)
+;; (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
 
 ;; enable flycheck on JS files
 (add-hook 'js-mode-hook

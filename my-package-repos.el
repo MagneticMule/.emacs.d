@@ -17,67 +17,80 @@
 
 (defvar required-packages
   '(
+
     ;; android-mode
     ;; arduino-mode
+    ;; company
+    ;; faces
+    ;; haxe-mode
+    ;; helm-c-yasnippet
+    ;; helm-company
+    ;; org-ac
+    ;; org-gcal
+    ;; php-auto-yasnip
+    ;; processing-mode
+    ;; processing-snippets
+    ;; spotify
+    ac-emmet
+    ac-ispell
+    ac-js2
     ac-math
+    ac-python
     auctex
     auctex-latexmk
     auto-complete ;; using this instead of company-mode. for the moment anyway.
     auto-complete-auctex
-    ac-ispell
-    ac-python
     awk-it
     color-theme
     color-theme-sanityinc-tomorrow
-    ;; company
     dash
     dash-at-point
+    emmet-mode
     f
-    ;; faces
     flycheck
     flycheck-tip
+    flymake-jshint
+    flymake-jslint
     guide-key
-    ;; haxe-mode
     helm
     helm-bibtex
     helm-bibtexkey
-    ;; helm-c-yasnippet
-    ;; helm-company
     helm-flycheck
     helm-flymake
     ido
-    ido-ubiquitous
     ido-hacks
+    ido-ubiquitous
+    js2-mode
+    js2-refactor
     json-mode
     magit
     markdown-mode+
-    ;; org-ac
-    ;; org-gcal
-    php-mode
-    ;; php-auto-yasnip
-    php-extras
     php-completion
-    projectile
+    php-extras
+    php-extras
+    php-mode
     popup
     pos-tip
     powerline
+    projectile
     reftex
-    ;; processing-mode
-    ;; processing-snippets
     session
     shell-command
     shell-history
     smex
     smooth-scrolling
     sr-speedbar
-    ;; spotify
     sublimity
+    term+
+    tern
+    tern-auto-complete
     visual-regexp
+    web-beautify
     web-mode
     window+
     workgroups
     yasnippet
-    ;; yasnippet-bundle
+    yasnippet-bundle
   ) "a list of packages to ensure are installed at launch.")
 
 ;; method to check if all packages are installed

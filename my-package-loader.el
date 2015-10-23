@@ -177,6 +177,9 @@
 (setq js2-highlight-level 3)
 
 ;; set up ternjs
+(add-to-list 'load-path "/Volumes/\Experiment \Partition/repositories/tern/emacs/")
+(autoload 'tern-mode "tern.el" nil t)
+
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 (eval-after-load 'tern
    '(progn

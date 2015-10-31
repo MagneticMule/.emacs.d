@@ -18,18 +18,17 @@
 (defvar required-packages
   '(
 
-    ;; android-mode
     ;; arduino-mode
     ;; company
     ;; faces
-    ;; haxe-mode
+     haxe-mode
     ;; helm-c-yasnippet
     ;; helm-company
-    ;; org-ac
+     org-ac
     ;; org-gcal
     ;; php-auto-yasnip
-    ;; processing-mode
-    ;; processing-snippets
+    processing-mode
+    processing-snippets
     ;; spotify
     ac-emmet
     ac-ispell
@@ -65,13 +64,13 @@
     json-mode
     magit
     markdown-mode+
+    material-theme
     php-completion
-    php-extras
     php-extras
     php-mode
     popup
     pos-tip
-    powerline
+    ;; powerline
     projectile
     reftex
     session
@@ -80,12 +79,12 @@
     smex
     smooth-scrolling
     sr-speedbar
-    sublimity
+    ;; sublimity
     term+
-    tern
-    tern-auto-complete
+    ;;tern
+    ;;tern-auto-complete
     visual-regexp
-    web-beautify
+    ;;web-beautify
     web-mode
     window+
     workgroups

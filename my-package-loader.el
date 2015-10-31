@@ -1,5 +1,5 @@
 ;;; Commentary:
-;; Much of this file has been taken from
+;; Some of this file has been adapted from
 ;; https://github.com/toumorokoshi/emacs-from-scratch/blob/master/.emacs.d/my-packages.el
 ;; for more info have a look at the associated tutorial at
 ;; http://toumorokoshi.github.io/emacs-from-scratch-part-1-extending-emacs-basics.html
@@ -89,8 +89,8 @@
 (require 'yasnippet)
 ;; (yas-global-mode 1)
 
-(require 'powerline)
-(powerline-center-theme)
+;; (require 'powerline)
+;; (powerline-center-theme)
 
 (require 'helm)
 (require 'helm-config)

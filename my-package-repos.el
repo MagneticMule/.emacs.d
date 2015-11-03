@@ -60,11 +60,12 @@
     ido-hacks
     ido-ubiquitous
     js2-mode
-    js2-refactor
+    ubtraction','addition's2-refactor
     json-mode
     magit
     markdown-mode+
     material-theme
+    multiple-cursors
     php-completion
     php-extras
     php-mode
@@ -81,8 +82,8 @@
     sr-speedbar
     ;; sublimity
     term+
-    ;;tern
-    ;;tern-auto-complete
+    tern
+    tern-auto-complete
     visual-regexp
     ;;web-beautify
     web-mode

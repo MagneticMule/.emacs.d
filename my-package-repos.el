@@ -27,8 +27,8 @@
      org-ac
     ;; org-gcal
     ;; php-auto-yasnip
-    processing-mode
-    processing-snippets
+    ;; processing-mode
+    ;; processing-snippets
     ;; spotify
     ac-emmet
     ac-ispell
@@ -60,7 +60,6 @@
     ido-hacks
     ido-ubiquitous
     js2-mode
-    ubtraction','addition's2-refactor
     json-mode
     magit
     markdown-mode+

@@ -2,17 +2,17 @@
 
 ; ~/.emacs.d/my-package-repos.el
 
-(require 'cl)
+;; (require 'cl)
 (require 'package)
 
 ;;; Code:
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+			 ("melpa" . "https://melpa.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")))
 
 (package-initialize)
-
+(message "Packages Initialized")
 
 
 (defvar required-packages

@@ -2,7 +2,7 @@
 
 ; ~/.emacs.d/my-package-repos.el
 
-;; (require 'cl)
+(require 'cl)
 (require 'package)
 
 ;;; Code:
@@ -24,24 +24,25 @@
      haxe-mode
     ;; helm-c-yasnippet
     ;; helm-company
-     org-ac
+    ;;  org-ac
     ;; org-gcal
     ;; php-auto-yasnip
     ;; processing-mode
     ;; processing-snippets
     ;; spotify
-    ac-emmet
-    ac-ispell
-    ac-js2
-    ac-math
-    ac-python
+    ;; ac-emmet
+    ;; ac-ispell
+    ;; ac-js2
+    ;; ac-math
+    ;; ac-python
     auctex
     auctex-latexmk
-    auto-complete ;; using this instead of company-mode. for the moment anyway.
-    auto-complete-auctex
+    ;; auto-complete ;; using this instead of company-mode. for the moment anyway.
+    ;; auto-complete-auctex
     awk-it
     color-theme
     color-theme-sanityinc-tomorrow
+    company
     dash
     dash-at-point
     emmet-mode
@@ -61,7 +62,7 @@
     ido-ubiquitous
     js2-mode
     json-mode
-    magit
+    ;; magit
     markdown-mode+
     material-theme
     multiple-cursors
@@ -70,7 +71,7 @@
     php-mode
     popup
     pos-tip
-    ;; powerline
+    powerline
     projectile
     reftex
     session

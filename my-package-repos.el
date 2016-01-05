@@ -43,6 +43,7 @@
     color-theme
     color-theme-sanityinc-tomorrow
     company
+    company-web
     dash
     dash-at-point
     emmet-mode

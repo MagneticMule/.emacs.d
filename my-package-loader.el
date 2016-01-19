@@ -10,64 +10,65 @@
 
 (load "auctex.el" nil t t)
 
+    (when (memq window-system '(mac ns))
+            (exec-path-from-shell-initialize))
+
 ;; ;;well this is simply not working old chap.
 ;; ;;(load "preview-latex.el" nil t t)
 
 ;; moving back to company mode from auto-complete-mode
-(add-hook 'after-init-hook 'global-company-mode)
-(require 'company)                                   ; load company mode
-(require 'company-web-html)                          ; load company mode html backend
-;; and/or
-(require 'company-web-jade)                          ; load company mode jade backend
-(require 'company-web-slim)                          ; load company mode slim backend
+;; (add-hook 'after-init-hook 'global-company-mode)
+;; (require 'company)                                   ; load company mode
+;; (require 'company-web-html)                          ; load company mode html backend
+;; ;; and/or
+;; (require 'company-web-jade)                          ; load company mode jade backend
+;; (require 'company-web-slim)                          ; load company mode slim backend
 
 
-
-(setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
-(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
-(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-(global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
+;;(setq company-tooltip-limit 20)                      ; bigger popup window
+;;(setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
+;;(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+;;(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+;;(global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
 
 ;; you may key bind, for example for web-mode:
 ;; (define-key web-mode-map (kbd "C-'") 'company-web-html)
 
 ;; add company-tern to company-mode accepted back ends
-(add-to-list 'company-backends 'company-tern)
+;;(add-to-list 'company-backends 'company-tern)
 
-;; ;; Inline auto completion and suggestions
-;; ;; (require 'auto-complete)
-;; ;; (require 'auto-complete-config)
-;; ;; (ac-config-default)
+;; Inline auto completion and suggestions
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
 
-;; ;; (require 'ac-math)
-;; ;; (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
+;; (require 'ac-math)
+;; (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
 
-;;  ;;(defun ac-LaTeX-mode-setup () ; add ac-sources to default ac-sources
-;;    ;; (setq ac-sources
-;;         ;; (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
-;;              ;;    ac-sources))
-;;  ;;  )
-;; ;; (add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
-;; ;; (global-auto-complete-mode t)
+;; defun ac-LaTeX-mode-setup () ; add ac-sources to default ac-sources
+;; (setq ac-sources
+;; (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
+;; ac-sources))
+;; )
+;; (add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
+;; (global-auto-complete-mode t)
 
-;; ;; (setq ac-math-unicode-in-math-p t)
-
-
-;;    ;; Completion words longer than 4 characters
-;;    ;; (custom-set-variables
-;;    ;;   '(ac-ispell-requires 4)
-;;    ;;   '(ac-ispell-fuzzy-limit 4))
-
-;;    ;; (eval-after-load "auto-complete"
-;;    ;;  '(progn
-;;    ;;      (ac-ispell-setup)))
-
-;;    ;; (add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
-;;    ;; (add-hook 'mail-mode-hook 'ac-ispell-ac-setupa)
+;; (setq ac-math-unicode-in-math-p t)
 
 
-;; (require 'magit)
+;; Completion words longer than 4 characters
+;; (custom-set-variables
+;; '(ac-ispell-requires 4)
+;; '(ac-ispell-fuzzy-limit 4))
+;; (eval-after-load "auto-complete"
+;; '(progn
+;; (ac-ispell-setup)))
+
+;; (add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
+;; (add-hook 'mail-mode-hook 'ac-ispell-ac-setupa)
+
+
+;;(require 'magit)
 
 
 (require 'ido)
@@ -111,12 +112,19 @@
 (require 'yasnippet)
 ;; (yas-global-mode 1)
 
-;; ;; (require 'powerline)
-;; ;; (powerline-center-theme)
 
-;; (require 'helm)
-;; (require 'helm-config)
-;; (require 'helm-eshell)
+;;; sRGB doesn't blend with Powerline's pixmap colors, but is only
+;;; used in OS X. Disable sRGB before setting up Powerline.
+(when (memq window-system '(mac ns))
+  (setq ns-use-srgb-colorspace nil))
+
+;; then just init powerline with the
+(require 'powerline)
+(powerline-center-theme)
+
+;;(require 'helm)
+;;(require 'helm-config)
+
 ;; (require 'helm-files)
 ;; (require 'helm-grep)
 ;; (autoload 'helm-bibtex "helm-bibtex" "" t)
@@ -126,19 +134,19 @@
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
-;; (global-set-key (kbd "C-c h") 'helm-command-prefix)
-;; (global-unset-key (kbd "C-x c"))
+;;(global-set-key (kbd "C-c h") 'helm-command-prefix)
+;;(global-unset-key (kbd "C-x c"))
 
-;; (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
-;; (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-;; (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+;;(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
+;;(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+;;(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
-;; (define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
-;; (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
-;; (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
+;;(define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
+;;(define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
+;;(define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 
-;; (when (executable-find "curl")
-;;   (setq helm-google-suggest-use-curl-p t))
+(when (executable-find "curl")
+(setq helm-google-suggest-use-curl-p t))
 
 ;; (setq helm-quick-update                     t ; do not display invisible candidates
 ;;       helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
@@ -148,7 +156,7 @@
 ;;       helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
 ;;       helm-ff-file-name-history-use-recentf t)
 
-;; (helm-mode 1)
+;;(helm-mode 1)
 
 
 
@@ -157,7 +165,7 @@
 ;;   '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
 
 
-(setq reftex-plug-into-AUCTeX t)
+;; (setq reftex-plug-into-AUCTeX t)
 
 ;; slightly pimped version of speeedbar. appears on the left side
 (require 'sr-speedbar)
@@ -195,18 +203,23 @@
 
 ;; js2 mode
 (add-hook 'js-mode-hook 'js2-minor-mode)
-;; (add-hook 'js2-mode-hook 'ac-js2-mode)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
 (setq js2-highlight-level 3)
 
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
 ;; set up ternjs
-(add-to-list 'load-path "/home/tommy/repositories/tern/emacs/")
+;; note: we need to set the path for each machine
+
+;; (add-to-list 'load-path "/home/tommy/repositories/tern/emacs/")
+;; (add-to-list 'load-path "/users/tommy/repositories/tern/emacs/")
 (autoload 'tern-mode "tern.el" nil t)
 
-;; (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-;; (eval-after-load 'tern
-;;    '(progn
-;;       (require 'tern-auto-complete)
-;;       (tern-ac-setup)))
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(eval-after-load 'tern
+'(progn
+	(require 'tern-auto-complete)
+	(tern-ac-setup)))
 
 
 ;; ;; paraedit brace balancing for JS
@@ -217,4 +230,36 @@
 (add-hook 'js-mode-hook
           (lambda () (flycheck-mode t)))
 
-;;; my-package ends here
+;; http://www.flycheck.org/manual/latest/index.html
+(require 'flycheck)
+
+;; turn on flychecking globally
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+	        (append flycheck-disabled-checkers
+			    '(javascript-jshint)))
+
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; customize flycheck temp file prefix
+(setq-default flycheck-temp-prefix ".flycheck")
+
+;; disable json-jsonlist checking for json files
+(setq-default flycheck-disabled-checkers
+	        (append flycheck-disabled-checkers
+			    '(json-jsonlist)))
+
+;; https://github.com/purcell/exec-path-from-shell
+;; only need exec-path-from-shell on OSX
+;; this hopefully sets up path and other vars better
+(when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize))
+
+;; (require 'evil-mode)
+
+
+(provide 'my-package-loader)
+;;; my-package-loader ends here

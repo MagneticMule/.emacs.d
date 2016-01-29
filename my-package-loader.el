@@ -118,13 +118,13 @@
 
 ;; then just init powerline with the
 (require 'powerline)
-(powerline-center-theme)
+(powerline-center-evil-theme)
 
 (require 'helm)
 (require 'helm-config)
 
 ;; (require 'helm-files)
-;; (require 'helm-grep)
+;;(require 'helm-grep)
 ;; (autoload 'helm-bibtex "helm-bibtex" "" t)
 ;; (setq helm-bibtex-bibliography "/home/tommy/Dropbox/PhD/Thesis/library.bib")
 
@@ -132,16 +132,16 @@
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-x c"))
+;; (global-set-key (kbd "C-c h") 'helm-command-prefix)
+;; (global-unset-key (kbd "C-x c"))
 
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+;;( define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
+;; (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+;; (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
-(define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
-(define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
-(define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
+;; (define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
+;; (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
+;; (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 
 (when (executable-find "curl")
 (setq helm-google-suggest-use-curl-p t))
@@ -154,7 +154,7 @@
        helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
        helm-ff-file-name-history-use-recentf t)
 
-(helm-mode 1)
+;; (helm-mode 1)
 
 
 
@@ -271,6 +271,12 @@
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook 'emmet-mode)
 
+(require 'ag)
+  (add-hook 'ag-mode-hook 'wgrep-ag-setup)
+  (setq ag-executable "/usr/local/bin/ag")
+  (setq ag-highlight-search t)
+  (setq ag-reuse-buffers t)
+  (setq ag-reuse-window t)
 
 (provide 'my-package-loader)
 

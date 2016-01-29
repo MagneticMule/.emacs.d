@@ -4,7 +4,7 @@
 ;; (set-window-buffer nil (current-buffer)) ; Use them now.
 
 ;; default font
-(set-default-font "DejaVu Sans Mono 15")
+(set-frame-font "DejaVu Sans Mono 15")
 ;; line height
 (setq-default line-spacing 6)
 
@@ -71,6 +71,9 @@
 ;; get rid of yes-or-no questions - y or n is enough
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(defvar backup-dir "~/.emacs.d/backups/")
+(setq backup-directory-alist (list (cons "." backup-dir)))
+(setq make-backup-files nil)
 ;;;(setq
 ;;; backup-by-copying t
 ;;; backup-directory-alist(server-start)

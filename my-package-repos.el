@@ -17,24 +17,25 @@
 
 (defvar required-packages
   '(
-
+    ag
     ;; arduino-mode
     ;; company
     ;; faces
-     haxe-mode
+    ecb
+    haxe-mode
     ;; helm-c-yasnippet
     ;; helm-company
-    ;;  org-ac
+    org-ac
     ;; org-gcal
     ;; php-auto-yasnip
     ;; processing-mode
     ;; processing-snippets
     ;; spotify
-    ;; ac-emmet
-    ;; ac-ispell
-    ;; ac-js2
+    ac-emmet
+    ac-ispell
+    ac-js2
     ;; ac-math
-    ;; ac-python
+    ac-python
     auctex
     auctex-latexmk
     ;; auto-complete ;; using this instead of company-mode. for the moment anyway.
@@ -47,11 +48,13 @@
     dash
     dash-at-point
     emmet-mode
+    evil
+    evil-leader
     f
     flycheck
     flycheck-tip
-    flymake-jshint
-    flymake-jslint
+    ;; flymake-jshint
+    ;; flymake-jslint
     guide-key
     helm
     helm-bibtex
@@ -62,6 +65,7 @@
     ido-hacks
     ido-ubiquitous
     js2-mode
+    js2-refactor
     json-mode
     ;; magit
     markdown-mode+

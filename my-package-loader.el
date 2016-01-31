@@ -260,16 +260,26 @@
 (smartparens-global-mode 1)
 
 ;; evil mode
-(require 'evil)
+(require 'evil)  (add-hook 'ecb-history-buffer-after-create-hook 'evil-emacs-state)
+  (add-hook 'ecb-directories-buffer-after-create-hook 'evil-emacs-state)
+  (add-hook 'ecb-methods-buffer-after-create-hook 'evil-emacs-state)
+  (add-hook 'ecb-sources-buffer-after-create-hook 'evil-emacs-state)
 (evil-mode 1)
 (setq evil-leader/in-all-states 1)
 (global-evil-leader-mode)
+(define-key evil-motion-state-map (kbd "RET") nil)
 
 ;; emmet mode
 (require 'emmet-mode)
 (emmet-mode 1)
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook 'emmet-mode)
+
+;; some attaempts to help ecb and evil play nice
+(add-hook 'ecb-history-buffer-after-create-hook 'evil-emacs-state)
+(add-hook 'ecb-directories-buffer-after-create-hook 'evil-emacs-state)
+(add-hook 'ecb-methods-buffer-after-create-hook 'evil-emacs-state)
+(add-hook 'ecb-sources-buffer-after-create-hook 'evil-emacs-state)
 
 (require 'ag)
   (add-hook 'ag-mode-hook 'wgrep-ag-setup)

@@ -1,0 +1,1 @@
+("~/repositories/yourviews/" "~/.emacs.d/" "~/repositories/tiny-narrative/")

@@ -43,26 +43,26 @@
 (ac-config-default)
 
 ;; (require 'ac-math)
-;; (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
+(add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
 
-;; defun ac-LaTeX-mode-setup () ; add ac-sources to default ac-sources
-;; (setq ac-sources
-;; (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
-;; ac-sources))
-;; )
-;; (add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
-;; (global-auto-complete-mode t)
+(defun ac-LaTeX-mode-setup () ; add ac-sources to default ac-sources
+(setq ac-sources
+(append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
+ac-sources))
+)
+(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
+(global-auto-complete-mode t)
 
-;; (setq ac-math-unicode-in-math-p t)
+(setq ac-math-unicode-in-math-p t)
 
 
 ;; Completion words longer than 4 characters
-;; (custom-set-variables
-;; '(ac-ispell-requires 4)
-;; '(ac-ispell-fuzzy-limit 4))
-;; (eval-after-load "auto-complete"
-;; '(progn
-;; (ac-ispell-setup)))
+(custom-set-variables
+'(ac-ispell-requires 4)
+'(ac-ispell-fuzzy-limit 4))
+(eval-after-load "auto-complete"
+'(progn
+(ac-ispell-setup)))
 
 ;; (add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
 ;; (add-hook 'mail-mode-hook 'ac-ispell-ac-setupa)
@@ -120,22 +120,22 @@
 (require 'powerline)
 (powerline-center-evil-theme)
 
-(require 'helm)
-(require 'helm-config)
+;; (require 'helm)
+;; (require 'helm-config)
 
 ;; (require 'helm-files)
-;;(require 'helm-grep)
-;; (autoload 'helm-bibtex "helm-bibtex" "" t)
-;; (setq helm-bibtex-bibliography "/home/tommy/Dropbox/PhD/Thesis/library.bib")
+;; (require 'helm-grep)
+;; ;; (autoload 'helm-bibtex "helm-bibtex" "" t)
+;; ;; (setq helm-bibtex-bibliography "/home/tommy/Dropbox/PhD/Thesis/library.bib")
 
 
-;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
-;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
-;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+;; ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
 ;; (global-set-key (kbd "C-c h") 'helm-command-prefix)
 ;; (global-unset-key (kbd "C-x c"))
 
-;;( define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
+;; ( define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
 ;; (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
 ;; (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
@@ -143,27 +143,29 @@
 ;; (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
 ;; (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 
-(when (executable-find "curl")
-(setq helm-google-suggest-use-curl-p t))
+;; (when (executable-find "curl")
+;; (setq helm-google-suggest-use-curl-p t))
 
- (setq helm-quick-update                     t ; do not display invisible candidates
-       helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-       helm-buffers-fuzzy-matching           t ; fuzzy matching buffer names when non--nil
-       helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-       helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-       helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-       helm-ff-file-name-history-use-recentf t)
+;;  (setq helm-quick-update                     t ; do not display invisible candidates
+;;        helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+;;        helm-buffers-fuzzy-matching           t ; fuzzy matching buffer names when non--nil
+;;        helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+;;        helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+;;        helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+;;        helm-ff-file-name-history-use-recentf t)
 
 ;; (helm-mode 1)
 
 
 
- (require 'helm-flycheck)
- (eval-after-load 'flycheck
-   '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
+;;  (require 'helm-flycheck)
+;;  (eval-after-load 'flycheck
+;;    '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
 
-
-;; (setq reftex-plug-into-AUCTeX t)
+;; turn on reftex when auctex starts
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;; make auctex aware of reftex
+(setq reftex-plug-into-AUCTeX t)
 
 ;; slightly pimped version of speeedbar. appears on the left side
 (require 'sr-speedbar)
@@ -196,7 +198,6 @@
 
 ;; enable projectile everywhere
 (projectile-global-mode)
-
 
 
 ;; js2 mode

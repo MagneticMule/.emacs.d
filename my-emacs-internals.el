@@ -4,7 +4,7 @@
 ;; (set-window-buffer nil (current-buffer)) ; Use them now.
 
 ;; default font
-(set-frame-font "DejaVu Sans Mono 12")
+(set-frame-font "DejaVu Sans Mono 13")
 ;; line height
 (setq-default line-spacing 6)
 

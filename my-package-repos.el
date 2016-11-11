@@ -38,13 +38,13 @@
     ac-python
     auctex
     auctex-latexmk
-    ;; auto-complete ;; using this instead of company-mode. for the moment anyway.
-    ;; auto-complete-auctex
+    auto-complete ;; using this instead of company-mode. for the moment anyway.
+    auto-complete-auctex
     awk-it
     color-theme
     color-theme-sanityinc-tomorrow
-    company
-    company-web
+    ;;company
+    ;;company-web
     dash
     dash-at-point
     emmet-mode
@@ -96,7 +96,7 @@
     workgroups
     yasnippet
     yasnippet-bundle
-  ) "a list of packages to ensure are installed at launch.")
+  ) "A list of packages to ensure are installed at launch.")
 
 ;; method to check if all packages are installed
 (defun packages-installed-p ()

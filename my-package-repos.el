@@ -50,6 +50,7 @@
     emmet-mode
     evil
     evil-leader
+    evil-smartparens
     f
     flycheck
     flycheck-tip
